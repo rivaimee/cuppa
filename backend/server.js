@@ -6,6 +6,7 @@ import MongoStore from "connect-mongo";
 import passport from "./auth/passportConfig.js";
 import authRouter from "./routes/auth.js";
 import brewsRouter from "./routes/brews.js";
+import tastingsRouter from "./routes/tastings.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,6 +28,7 @@ app.use(passport.session());
 
 app.use("/api/auth", authRouter);
 app.use("/api/brews", brewsRouter);
+app.use("/api/tastings", tastingsRouter);
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
@@ -34,6 +36,11 @@ app.get("/api/health", (req, res) => {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+// Serve index.html for React routes so page refreshes work
+app.get("/{*splat}", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Cuppa server running on port ${PORT}`);

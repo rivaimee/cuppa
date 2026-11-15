@@ -1,11 +1,4 @@
-const VALID_METHODS = [
-  "Pour Over",
-  "French Press",
-  "Espresso",
-  "AeroPress",
-  "Cold Brew",
-  "Other",
-];
+const VALID_METHODS = ["Pour Over", "French Press", "Espresso", "AeroPress", "Cold Brew", "Other"];
 
 export function validateBrew(data) {
   const errors = [];

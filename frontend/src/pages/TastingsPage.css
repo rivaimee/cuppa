@@ -1,0 +1,54 @@
+.tastings-page__title {
+  margin-bottom: 16px;
+}
+
+.tastings-page__toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tastings-page__login-note {
+  margin: 0;
+  color: var(--color-roast);
+}
+
+.tastings-page__login-note a {
+  color: var(--color-cherry);
+  font-weight: 600;
+}
+
+.tastings-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tastings-page__error {
+  background-color: #fbe9e5;
+  border: 1px solid #a3321f;
+  color: #a3321f;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.tastings-page__empty {
+  color: var(--color-roast);
+  font-style: italic;
+}
+
+.tastings-page__loading {
+  color: var(--color-roast);
+}
+
+@media (max-width: 640px) {
+  .tastings-page__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

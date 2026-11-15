@@ -1,0 +1,105 @@
+.tasting-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: var(--color-foam);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-cherry);
+  border-radius: 2px;
+  padding: 18px 22px;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.tasting-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(43, 27, 18, 0.12);
+}
+
+.tasting-card__heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tasting-card__heading h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.tasting-card__roaster {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-cherry);
+}
+
+.tasting-card__origin {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: var(--color-roast);
+}
+
+.tasting-card__notes {
+  margin: 12px 0 0;
+  color: var(--color-espresso);
+  max-width: 60ch;
+}
+
+.tasting-card__meta {
+  margin: 10px 0 0;
+  font-size: 0.8rem;
+  color: var(--color-roast);
+}
+
+.tasting-card__side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tasting-card__average {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-roast);
+  text-align: right;
+}
+
+.tasting-card__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.tasting-card__actions button {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-roast);
+  font-size: 0.8rem;
+  padding: 4px 10px;
+}
+
+.tasting-card__actions button:hover {
+  background-color: var(--color-oat);
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .tasting-card {
+    flex-direction: column;
+  }
+
+  .tasting-card__side {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tasting-card:hover {
+    transform: none;
+  }
+}
