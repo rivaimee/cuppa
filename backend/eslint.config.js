@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import globals from "globals";
 import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
@@ -7,10 +8,7 @@ export default [
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
-      globals: {
-        process: "readonly",
-        console: "readonly",
-      },
+      globals: globals.node,
     },
     rules: {
       "no-unused-vars": [

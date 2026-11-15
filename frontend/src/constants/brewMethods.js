@@ -1,11 +1,4 @@
-export const METHODS = [
-  "Pour Over",
-  "French Press",
-  "Espresso",
-  "AeroPress",
-  "Cold Brew",
-  "Other",
-];
+export const METHODS = ["Pour Over", "French Press", "Espresso", "AeroPress", "Cold Brew", "Other"];
 
 // Cold Brew deliberately breaks from the warm brown family to visually
 // signal "cold" against the otherwise hot-brew palette.

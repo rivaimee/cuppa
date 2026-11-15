@@ -13,17 +13,36 @@ It has two independent features: a private **Brew Log** and a public
 
 [CS5610 Web Development — add the course link here]
 
-## Project Status
+## Project Objective
 
-- **Shared authentication** (Passport, sessions) — built
-- **Brew Log** (Rachna's feature) — complete
-- **Tasting Board** (Sai's feature) — in progress
-- **Deployment link** — to be added once deployed
-- **Screenshots** — to be added before final submission
+Help two kinds of coffee drinkers:
 
-This README currently documents the Brew Log side in full. Sai will
-extend this file with the Tasting Board section, the live deployment
-link, and final submission details.
+- **Maya** brews at home and wants to repeat her best cup, so she keeps a
+  private **Brew Log** of every brew and its rating (Rachna's feature).
+- **Leo** wants honest reviews before buying beans, so he browses the
+  public **Tasting Board**, filters reviews by roaster, origin and rating,
+  and sees each coffee's average rating (Varun's feature).
+
+## Live Demo
+
+[Add the Render URL here]
+
+Demo logins (seeded data): `demo_brewer` / `demo12345` for the Brew Log,
+`demo_taster1` to `demo_taster8` / `demo12345` for the Tasting Board.
+
+## Screenshot
+
+![Cuppa Tasting Board](./screenshot.png)
+
+## How to Use
+
+1. Open the **Tasting Board** from the nav bar. Anyone can browse it
+   without logging in.
+2. Filter by roaster, origin, or minimum rating. Each card shows the
+   coffee's average rating across all reviews.
+3. **Register** or **Log in** to write a review, or to log your own brews
+   in the **Brew Log**.
+4. Your own reviews and brews show **Edit** and **Delete** buttons.
 
 ---
 
@@ -74,6 +93,33 @@ npm run dev
 Opens at `http://localhost:5173`, proxying `/api` requests to the backend
 on port 3000 during local development.
 
+### Production build (how it runs on Render)
+
+Express serves the built React app from `frontend/dist`, so there is one
+server and no CORS:
+
+```
+cd frontend && npm install && npm run build
+cd ../backend && npm install && node --env-file=.env server.js
+```
+
+Then open `http://localhost:3000`. On Render (Web Service, repo root):
+
+- **Build command:** `cd frontend && npm install && npm run build && cd ../backend && npm install`
+- **Start command:** `cd backend && npm start`
+- **Environment variables:** `MONGODB_URI` and `SESSION_SECRET`, set in
+  the Render dashboard, never committed
+
+### Lint and format
+
+```
+cd backend  && npm run lint && npm run format
+cd frontend && npm run lint && npm run format
+```
+
+ESLint configs live in each folder (`eslint.config.js`), and the shared
+Prettier config is `.prettierrc.json` at the repo root.
+
 ---
 
 ## Authentication
@@ -113,24 +159,21 @@ hidden in the UI.
 
 ### Data model
 
-```js
-// brews collection
-{
-  (_id,
-    userId, // string form of the owning user's ObjectId
-    beanName, // required
-    origin, // optional
-    method, // one of: Pour Over, French Press, Espresso,
-    // AeroPress, Cold Brew, Other
-    grindSize,
-    ratio, // e.g. "1:16"
-    brewTime, // e.g. "3:30"
-    waterTemp, // number, °F
-    rating, // 1-5, required
-    notes,
-    date, // required
-    createdAt);
-}
+```text
+brews collection
+  _id
+  userId      string form of the owning user's ObjectId
+  beanName    required
+  origin      optional
+  method      Pour Over, French Press, Espresso, AeroPress, Cold Brew, Other
+  grindSize
+  ratio       e.g. "1:16"
+  brewTime    e.g. "3:30"
+  waterTemp   number, °F
+  rating      1-5, required
+  notes
+  date        required
+  createdAt
 ```
 
 ### API
@@ -162,6 +205,79 @@ node --env-file=.env scripts/seedBrews.js [count]
 
 ---
 
+## Tasting Board (Varun's feature)
+
+A public board of coffee bean reviews. Anyone can browse and filter it
+without an account. Logging in lets you post reviews, and only a review's
+author can edit or delete it (checked server-side, not just hidden in the
+UI).
+
+### Features
+
+- Create, edit, and delete your own reviews: coffee name, roaster, origin,
+  rating (1-5 coffee cups), and tasting notes
+- Browse every review, newest first, and filter by roaster, origin
+  (case-insensitive, partial match), and minimum rating
+- Each review card shows that coffee's **average rating** and review count
+  across all reviews of the same coffee from the same roaster, and it
+  updates after any save or delete
+
+### Data model
+
+```text
+tastings collection
+  _id
+  userId       string form of the author's ObjectId (set by the server)
+  username     author's username, shown on the card (set by the server)
+  coffeeName   required
+  roaster      required
+  origin       optional
+  rating       whole number 1-5, required
+  notes        optional
+  createdAt
+```
+
+The server only saves the fields above, so a client cannot set `userId`
+or `username` itself.
+
+### API
+
+| Endpoint                                    | Method | Login | Description                                   |
+| ------------------------------------------- | ------ | ----- | --------------------------------------------- |
+| `/api/tastings?roaster=&origin=&minRating=` | GET    | No    | List reviews, optionally filtered             |
+| `/api/tastings/averages`                    | GET    | No    | Average rating and count per coffee + roaster |
+| `/api/tastings`                             | POST   | Yes   | Post a review                                 |
+| `/api/tastings/:id`                         | PUT    | Yes   | Edit a review (author only, otherwise 404)    |
+| `/api/tastings/:id`                         | DELETE | Yes   | Delete a review (author only, otherwise 404)  |
+
+### Seed script
+
+```
+cd backend
+node --env-file=.env scripts/seedTastings.js [count]
+```
+
+- Creates 8 demo accounts (`demo_taster1` to `demo_taster8` /
+  `demo12345`) if they don't already exist
+- Generates `count` synthetic reviews (defaults to 1200) spread across
+  those accounts, 12 coffees and 8 roasters
+- **Idempotent and safe to re-run**: it only clears and replaces reviews
+  written by the demo accounts, never real users' reviews
+
+### Frontend files
+
+```
+frontend/src/
+├── components/
+│   ├── TastingCard.jsx / .css       - one review, with its coffee's average
+│   ├── TastingFilterBar.jsx / .css  - roaster, origin, and rating filters
+│   └── TastingForm.jsx / .css       - create/edit review form
+└── pages/
+    └── TastingsPage.jsx / .css      - the Tasting Board page itself
+```
+
+---
+
 ## Frontend structure (Brew Log side)
 
 ```
@@ -186,8 +302,7 @@ frontend/src/
     └── BrewsPage.jsx        — the Brew Log page itself
 ```
 
-Color palette and shared conventions are documented in `HANDOFF.md`, for
-whoever is extending this with the Tasting Board.
+Color palette and shared conventions are documented in `HANDOFF.md`.
 
 ---
 
@@ -195,8 +310,11 @@ whoever is extending this with the Tasting Board.
 
 Used Claude (Anthropic) for planning, debugging, and implementation
 assistance on the authentication system, Brew Log feature, UI styling,
-and this documentation. Sai will disclose his own usage for the Tasting
-Board in this same section.
+and this documentation.
+
+Varun used Claude (Anthropic) on the Tasting Board for help with the
+ESLint and Prettier setup, the Express fallback route for deployment,
+testing the API, and writing the Tasting Board section of this README.
 
 ---
 

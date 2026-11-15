@@ -300,7 +300,6 @@ button:focus-visible {
   line-height: 1.5;
 }
 
-
 .cup-rating {
   display: inline-flex;
   gap: 4px;
@@ -350,7 +349,6 @@ button:focus-visible {
   border-radius: 3px;
 }
 
-
 .brews-page__toolbar {
   display: flex;
   justify-content: space-between;
@@ -379,7 +377,6 @@ button:focus-visible {
   border: 1px solid var(--color-border);
   background-color: var(--color-foam);
 }
-
 
 .brew-list {
   display: flex;
