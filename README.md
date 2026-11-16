@@ -25,7 +25,7 @@ Help two kinds of coffee drinkers:
 
 ## Live Demo
 
-[https://cuppa-o57w.onrender.com]
+https://cuppa-o57w.onrender.com
 
 Demo logins (seeded data): `demo_brewer` / `demo12345` for the Brew Log,
 `demo_taster1` to `demo_taster8` / `demo12345` for the Tasting Board.
