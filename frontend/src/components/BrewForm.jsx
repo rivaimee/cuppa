@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { METHODS } from "../constants/brewMethods.js";
 import CupRating from "./CupRating.jsx";
+import "./BrewForm.css";
 
 const BLANK = {
   beanName: "",

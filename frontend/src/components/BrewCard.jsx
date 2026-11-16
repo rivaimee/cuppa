@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import CupRating from "./CupRating.jsx";
 import { METHOD_COLORS } from "../constants/brewMethods.js";
+import "./BrewCard.css";
 
 export default function BrewCard({ brew, onEdit, onDelete }) {
   const accentColor = METHOD_COLORS[brew.method] || METHOD_COLORS.Other;

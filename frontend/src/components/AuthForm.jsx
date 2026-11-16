@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import "./AuthForm.css";
 
 export default function AuthForm({ mode, onSubmit }) {
   const [username, setUsername] = useState("");

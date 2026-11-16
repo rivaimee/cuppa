@@ -1,0 +1,34 @@
+.brews-page__toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.brews-page__error {
+  background-color: #fbe9e5;
+  border: 1px solid #a3321f;
+  color: #a3321f;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.brews-page__empty {
+  color: var(--color-roast);
+  font-style: italic;
+}
+
+.brews-page__loading {
+  color: var(--color-roast);
+}
+
+@media (max-width: 640px) {
+  .brews-page__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

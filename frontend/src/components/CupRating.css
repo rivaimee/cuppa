@@ -1,0 +1,52 @@
+.cup-rating {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.cup {
+  transition:
+    color 150ms ease,
+    fill 150ms ease,
+    stroke 150ms ease;
+}
+
+.cup--filled {
+  color: var(--color-cherry);
+  fill: var(--color-cherry);
+}
+
+.cup--empty {
+  color: var(--color-border);
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+}
+
+/* Interactive rating control used in BrewForm — simple hover/focus
+   feedback: a slight scale on the cup being pointed at. */
+.cup-rating__button {
+  background: none;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  transition: transform 150ms ease;
+}
+
+.cup-rating__button:hover,
+.cup-rating__button:focus-visible {
+  transform: scale(1.15);
+}
+
+.cup-rating__button:focus-visible {
+  outline: 2px solid var(--color-caramel);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cup-rating__button:hover,
+  .cup-rating__button:focus-visible {
+    transform: none;
+  }
+}

@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
+import "./NavBar.css";
 
+// A small steaming-cup mark beside the wordmark — simple enough to read
+// at nav-bar size, on-theme, not a generic icon-font glyph.
 function BrandMark() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" className="brand-mark">

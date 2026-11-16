@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import BestBrewBanner from "../components/BestBrewBanner.jsx";
+import "./HomePage.css";
 
 export default function HomePage() {
   const { user } = useAuth();

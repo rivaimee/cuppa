@@ -1,0 +1,68 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: var(--color-espresso);
+  color: var(--color-foam);
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(90deg, var(--color-caramel), var(--color-cherry)) 1;
+}
+
+.nav-bar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-foam);
+  text-decoration: none;
+}
+
+.brand-mark {
+  color: var(--color-caramel);
+  fill: var(--color-caramel);
+}
+
+.nav-bar__links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-bar__links a {
+  color: var(--color-oat);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 200ms ease;
+}
+
+.nav-bar__links a:hover {
+  color: var(--color-caramel);
+}
+
+/* The current page gets a small underline accent — makes the nav feel
+   alive and tells you where you are, not just a row of plain links. */
+.nav-bar__links a.nav-bar__links-active {
+  color: var(--color-caramel);
+}
+
+.nav-bar__links-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: var(--color-caramel);
+  border-radius: 2px;
+}
+
+.nav-bar__user {
+  color: var(--color-caramel);
+  font-weight: 600;
+}

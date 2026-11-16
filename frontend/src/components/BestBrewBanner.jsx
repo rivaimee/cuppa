@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import CupRating from "./CupRating.jsx";
+import "./BestBrewBanner.css";
 
 export default function BestBrewBanner({ brew }) {
   if (!brew) {

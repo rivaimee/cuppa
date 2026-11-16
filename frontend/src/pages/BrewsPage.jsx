@@ -3,6 +3,7 @@ import BestBrewBanner from "../components/BestBrewBanner.jsx";
 import BrewFilterBar from "../components/BrewFilterBar.jsx";
 import BrewCard from "../components/BrewCard.jsx";
 import BrewForm from "../components/BrewForm.jsx";
+import "./BrewsPage.css";
 
 export default function BrewsPage() {
   const [brews, setBrews] = useState([]);

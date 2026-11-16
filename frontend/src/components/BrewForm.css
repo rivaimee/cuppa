@@ -1,0 +1,84 @@
+.brew-form {
+  background-color: var(--color-foam);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 560px;
+  animation: brew-form-fade-in 220ms ease;
+}
+
+@keyframes brew-form-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brew-form label,
+.brew-form__label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-roast);
+  margin-top: 4px;
+}
+
+.brew-form input,
+.brew-form select,
+.brew-form textarea {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.brew-form input:focus-visible,
+.brew-form select:focus-visible,
+.brew-form textarea:focus-visible {
+  outline: 2px solid var(--color-caramel);
+  outline-offset: 1px;
+  border-color: var(--color-caramel);
+}
+
+.brew-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.brew-form__buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.brew-form__buttons button[type="button"] {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-roast);
+}
+
+.brew-form__buttons button[type="button"]:hover {
+  background-color: var(--color-oat);
+  opacity: 1;
+}
+
+.brew-form__error {
+  color: #a3321f;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .brew-form__row {
+    grid-template-columns: 1fr;
+  }
+}

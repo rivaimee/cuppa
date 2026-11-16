@@ -1,0 +1,49 @@
+.best-brew {
+  background-color: var(--color-espresso);
+  color: var(--color-foam);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin-bottom: 28px;
+}
+
+.best-brew--empty {
+  background-color: var(--color-foam);
+  color: var(--color-roast);
+  border: 1px dashed var(--color-border);
+}
+
+.best-brew__label {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--color-caramel);
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.best-brew h2 {
+  font-size: 2rem;
+  margin: 0 0 4px;
+}
+
+.best-brew__origin {
+  color: var(--color-oat);
+  margin: 0 0 12px;
+}
+
+.best-brew__notes {
+  font-style: italic;
+  margin-top: 14px;
+  max-width: 60ch;
+  line-height: 1.5;
+}
+
+.best-brew .cup--empty {
+  color: #5a4535;
+  stroke: #5a4535;
+}
+
+@media (max-width: 640px) {
+  .best-brew h2 {
+    font-size: 1.5rem;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import "./CupRating.css";
 
 function Cup({ filled }) {
   return (

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { METHODS } from "../constants/brewMethods.js";
+import "./BrewFilterBar.css";
 
 export default function BrewFilterBar({ filters, onChange }) {
   function update(field, value) {
