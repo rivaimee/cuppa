@@ -11,7 +11,7 @@ It has two independent features: a private **Brew Log** and a public
 
 ## Class Link
 
-[CS5610 Web Development — add the course link here]
+[CS5610 Web Development](https://johnguerra.co/classes/webDevelopment_online_fall_2026/)
 
 ## Project Objective
 
@@ -56,7 +56,8 @@ Demo logins (seeded data): `demo_brewer` / `demo12345` for the Brew Log,
   `bcryptjs`
 - **Database:** MongoDB, native Node.js driver (no Mongoose)
 - Separate `package.json` files for `backend/` and `frontend/`
-- No Axios, no CORS package — Express serves the built React app directly
+- No Axios and no CORS package, since Express serves the built React app
+  directly
 
 ---
 
@@ -126,7 +127,7 @@ Prettier config is `.prettierrc.json` at the repo root.
 
 Passport local strategy with sessions stored in MongoDB (`connect-mongo`),
 so logins persist across server restarts and page refreshes. Passwords
-are hashed with `bcryptjs` — never stored in plain text.
+are hashed with `bcryptjs`, so plain text passwords are never stored.
 
 | Endpoint             | Method | Description                                    |
 | -------------------- | ------ | ---------------------------------------------- |
@@ -143,8 +144,8 @@ Every authenticated request has `req.user` available server-side
 ## Brew Log (Rachna's feature)
 
 A private, per-user log of coffee brews. Only the logged-in user can see
-or modify their own brews — enforced server-side on every route, not just
-hidden in the UI.
+or modify their own brews. This is enforced server-side on every route,
+not just hidden in the UI.
 
 ### Features
 
@@ -199,8 +200,8 @@ node --env-file=.env scripts/seedBrews.js [count]
   already exist
 - Generates `count` synthetic brews (defaults to 1200 if no count is
   given) for that demo account only
-- **Idempotent and safe to re-run** — it only ever clears and replaces
-  the demo account's own previously-seeded brews, never any other user's
+- **Idempotent and safe to re-run.** It only ever clears and replaces
+  the demo account's own previously seeded brews, never any other user's
   real data
 
 ---
@@ -261,7 +262,7 @@ node --env-file=.env scripts/seedTastings.js [count]
   `demo12345`) if they don't already exist
 - Generates `count` synthetic reviews (defaults to 1200) spread across
   those accounts, 12 coffees and 8 roasters
-- **Idempotent and safe to re-run**: it only clears and replaces reviews
+- **Idempotent and safe to re-run.** It only clears and replaces reviews
   written by the demo accounts, never real users' reviews
 
 ### Frontend files
@@ -283,23 +284,23 @@ frontend/src/
 ```
 frontend/src/
 ├── components/
-│   ├── BestBrewBanner.jsx   — the hero "best brew" display
-│   ├── BrewCard.jsx         — one logged brew, ticket-style
-│   ├── BrewFilterBar.jsx    — method + date range filters
-│   ├── BrewForm.jsx         — create/edit form
-│   ├── CupRating.jsx        — coffee-cup rating, display or interactive
-│   ├── NavBar.jsx           — shared nav (used by both features)
-│   ├── AuthForm.jsx         — shared login/register form
-│   └── ProtectedRoute.jsx   — shared login-required route guard
+│   ├── BestBrewBanner.jsx   - the hero "best brew" display
+│   ├── BrewCard.jsx         - one logged brew, ticket-style
+│   ├── BrewFilterBar.jsx    - method + date range filters
+│   ├── BrewForm.jsx         - create/edit form
+│   ├── CupRating.jsx        - coffee-cup rating, display or interactive
+│   ├── NavBar.jsx           - shared nav (used by both features)
+│   ├── AuthForm.jsx         - shared login/register form
+│   └── ProtectedRoute.jsx   - shared login-required route guard
 ├── constants/
-│   └── brewMethods.js       — method list + method→color mapping
+│   └── brewMethods.js       - method list and method-to-color mapping
 ├── context/
-│   └── AuthContext.jsx      — shared session state
+│   └── AuthContext.jsx      - shared session state
 └── pages/
     ├── HomePage.jsx
     ├── LoginPage.jsx
     ├── RegisterPage.jsx
-    └── BrewsPage.jsx        — the Brew Log page itself
+    └── BrewsPage.jsx        - the Brew Log page itself
 ```
 
 Color palette and shared conventions are documented in `HANDOFF.md`.
@@ -320,4 +321,4 @@ testing the API, and writing the Tasting Board section of this README.
 
 ## License
 
-MIT — see [LICENSE](./LICENSE)
+MIT. See [LICENSE](./LICENSE).
