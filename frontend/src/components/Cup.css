@@ -1,0 +1,18 @@
+.cup {
+  transition:
+    color 150ms ease,
+    fill 150ms ease,
+    stroke 150ms ease;
+}
+
+.cup--filled {
+  color: var(--color-cherry);
+  fill: var(--color-cherry);
+}
+
+.cup--empty {
+  color: var(--color-border);
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+}

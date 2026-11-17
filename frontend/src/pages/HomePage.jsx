@@ -41,11 +41,11 @@ export default function HomePage() {
         <section className="home-cta">
           <p>Log in or create an account to start tracking your own brews.</p>
           <div className="home-cta__buttons">
-            <Link to="/login">
-              <button type="button">Log in</button>
+            <Link to="/login" className="btn">
+              Log in
             </Link>
-            <Link to="/register">
-              <button type="button">Register</button>
+            <Link to="/register" className="btn">
+              Register
             </Link>
           </div>
         </section>
@@ -55,25 +55,27 @@ export default function HomePage() {
         <article className="home-menu__item">
           <h3>My Brews</h3>
           <p>
-            A private log of every cup you&rsquo;ve made &mdash; method, ratio, rating, and
-            tasting notes, all in one place.
+            A private log of every cup you&rsquo;ve made: method, ratio, rating, and tasting notes,
+            all in one place.
           </p>
-          <Link to="/brews">
-            <button type="button">Open my log</button>
+          <Link to="/brews" className="btn">
+            Open my log
           </Link>
         </article>
 
         <article className="home-menu__item home-menu__item--tasting">
           <h3>Tasting Board</h3>
           <p>
-            Browse what other home brewers think of the beans they&rsquo;ve tried, before you
-            buy your next bag.
+            Browse what other home brewers think of the beans they&rsquo;ve tried, before you buy
+            your next bag.
           </p>
-          <Link to="/tastings">
-            <button type="button">Browse reviews</button>
+          <Link to="/tastings" className="btn">
+            Browse reviews
           </Link>
         </article>
       </section>
     </div>
   );
 }
+
+HomePage.propTypes = {};

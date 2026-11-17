@@ -6,6 +6,21 @@ async function brewsCollection() {
   return db.collection("brews");
 }
 
+function brewFields(data) {
+  return {
+    beanName: data.beanName.trim(),
+    origin: data.origin,
+    method: data.method,
+    grindSize: data.grindSize,
+    ratio: data.ratio,
+    brewTime: data.brewTime,
+    waterTemp: data.waterTemp,
+    rating: data.rating,
+    notes: data.notes,
+    date: data.date,
+  };
+}
+
 export async function findBrewsByUser(userId, { method, start, end } = {}) {
   const brews = await brewsCollection();
   const query = { userId };
@@ -13,8 +28,8 @@ export async function findBrewsByUser(userId, { method, start, end } = {}) {
   if (method) query.method = method;
   if (start || end) {
     query.date = {};
-    if (start) query.date.$gte = new Date(start);
-    if (end) query.date.$lte = new Date(end);
+    if (start) query.date.$gte = start;
+    if (end) query.date.$lte = end;
   }
 
   return brews.find(query).sort({ date: -1 }).toArray();
@@ -34,7 +49,7 @@ export async function createBrew(userId, data) {
   const brews = await brewsCollection();
   const result = await brews.insertOne({
     userId,
-    ...data,
+    ...brewFields(data),
     createdAt: new Date(),
   });
   return findBrewById(result.insertedId);
@@ -44,7 +59,7 @@ export async function updateBrew(id, userId, data) {
   const brews = await brewsCollection();
   const result = await brews.findOneAndUpdate(
     { _id: new ObjectId(id), userId },
-    { $set: data },
+    { $set: brewFields(data) },
     { returnDocument: "after" },
   );
   return result;

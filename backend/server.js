@@ -19,7 +19,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
-    cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 }, // 1 week
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 },
   }),
 );
 
@@ -37,7 +37,6 @@ app.get("/api/health", (req, res) => {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-// Serve index.html for React routes so page refreshes work
 app.get("/{*splat}", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });

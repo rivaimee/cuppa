@@ -26,10 +26,12 @@ export default function App() {
               </ProtectedRoute>
             }
           />
-          {/* Tasting Board is public to browse; posting/editing is checked server-side */}
+          {/* public route, auth checked server-side */}
           <Route path="/tastings" element={<TastingsPage />} />
         </Routes>
       </main>
     </AuthProvider>
   );
 }
+
+App.propTypes = {};

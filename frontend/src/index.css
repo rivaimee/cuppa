@@ -35,9 +35,8 @@ main {
   padding: 32px 20px;
 }
 
-/* A plain <button> default shared by every component in the app — kept
-   here as a true base/reset style, not specific to any one component. */
-button {
+button,
+.btn {
   background-image: linear-gradient(180deg, var(--color-caramel), #a3692f);
   color: var(--color-espresso);
   border: none;
@@ -52,18 +51,27 @@ button {
     transform 150ms ease;
 }
 
-button:hover {
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+button:hover,
+.btn:hover {
   opacity: 0.9;
   box-shadow: 0 3px 6px rgba(43, 27, 18, 0.22);
   transform: translateY(-1px);
 }
 
-button:active {
+button:active,
+.btn:active {
   transform: translateY(1px);
   box-shadow: 0 1px 2px rgba(43, 27, 18, 0.15);
 }
 
-button:focus-visible {
+button:focus-visible,
+.btn:focus-visible {
   outline: 2px solid var(--color-espresso);
   outline-offset: 2px;
 }
@@ -74,10 +82,6 @@ button:focus-visible {
   }
 }
 
-/* ---------- Respect reduced-motion preference ---------- */
-/* The blanket reset lives here since it applies globally; each
-   component's own CSS file handles resetting its own specific
-   hover/focus transforms (see that file's own reduced-motion block). */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -90,7 +94,9 @@ button:focus-visible {
   }
 
   button:hover,
-  button:active {
+  button:active,
+  .btn:hover,
+  .btn:active {
     transform: none;
   }
 }

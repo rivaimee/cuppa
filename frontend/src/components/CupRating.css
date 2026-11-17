@@ -3,27 +3,7 @@
   gap: 4px;
 }
 
-.cup {
-  transition:
-    color 150ms ease,
-    fill 150ms ease,
-    stroke 150ms ease;
-}
-
-.cup--filled {
-  color: var(--color-cherry);
-  fill: var(--color-cherry);
-}
-
-.cup--empty {
-  color: var(--color-border);
-  fill: none;
-  stroke: var(--color-border);
-  stroke-width: 1.5;
-}
-
-/* Interactive rating control used in BrewForm — simple hover/focus
-   feedback: a slight scale on the cup being pointed at. */
+/* Clickable cups in the brew and review forms */
 .cup-rating__button {
   background: none;
   border: none;

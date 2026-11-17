@@ -1,30 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import Cup from "./Cup.jsx";
 import "./CupRating.css";
 
-function Cup({ filled }) {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      className={filled ? "cup cup--filled" : "cup cup--empty"}
-      aria-hidden="true"
-    >
-      <path d="M4 3h12v9a6 6 0 0 1-6 6 6 6 0 0 1-6-6V3z" />
-      <path d="M16 6h2a3 3 0 0 1 0 6h-2" fill="none" strokeWidth="1.6" stroke="currentColor" />
-    </svg>
-  );
-}
-
-Cup.propTypes = {
-  filled: PropTypes.bool.isRequired,
-};
-
-// Same visual (coffee cups instead of stars) in two modes:
-// - display mode (default): read-only, used on BrewCard / BestBrewBanner
-// - interactive mode (onRate passed in): used by BrewForm as the actual
-//   rating control, with hover preview and click-to-set.
 export default function CupRating({ rating, onRate }) {
   const [hoverValue, setHoverValue] = useState(0);
   const interactive = typeof onRate === "function";

@@ -4,10 +4,8 @@ import { findByUsername, createUser } from "../db/users.js";
 import { VALID_METHODS } from "../validation/brew.js";
 
 const DEMO_USERNAME = "demo_brewer";
-const DEMO_PASSWORD = "demo12345"; // for local/demo login only
+const DEMO_PASSWORD = "demo12345";
 
-// Defaults to 1200 for the real submission, but you can pass a smaller
-// number while testing, e.g.: node --env-file=.env scripts/seedBrews.js 20
 const RECORD_COUNT = Number(process.argv[2]) || 1200;
 
 const BEAN_NAMES = [
@@ -103,14 +101,13 @@ async function seed() {
     demoUser = await createUser({ username: DEMO_USERNAME, passwordHash });
     console.log(`Created demo user "${DEMO_USERNAME}" (password: ${DEMO_PASSWORD})`);
   } else {
-    console.log(`Demo user "${DEMO_USERNAME}" already exists — reusing it.`);
+    console.log(`Demo user "${DEMO_USERNAME}" already exists, reusing it.`);
   }
 
   const demoUserId = demoUser._id.toString();
   const brews = db.collection("brews");
 
-  // Idempotent: only clears this demo user's own previously-seeded brews,
-  // never anyone else's real data.
+  // Only clears the demo user's own brews
   const deleted = await brews.deleteMany({ userId: demoUserId });
   console.log(`Cleared ${deleted.deletedCount} previously-seeded demo brews.`);
 
