@@ -25,11 +25,11 @@ Demo logins (seeded data): `demo_brewer` / `demo12345` for the Brew Log,
 
 ## Video Demo
 
-(add the video link here)
+https://youtu.be/t6FzCE6eVOc
 
 ## Presentation Slides
 
-(add the slides link here)
+https://docs.google.com/presentation/d/1klsWoxRvYt8AifepTm2B21Tyn-RhlUU2/edit?usp=sharing&ouid=100030749188864065891&rtpof=true&sd=true
 
 ## Project Objective
 
