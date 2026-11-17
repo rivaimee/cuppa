@@ -55,8 +55,8 @@ export default function HomePage() {
         <article className="home-menu__item">
           <h3>My Brews</h3>
           <p>
-            A private log of every cup you&rsquo;ve made &mdash; method, ratio, rating, and
-            tasting notes, all in one place.
+            A private log of every cup you&rsquo;ve made: method, ratio, rating, and tasting notes,
+            all in one place.
           </p>
           <Link to="/brews">
             <button type="button">Open my log</button>
@@ -66,8 +66,8 @@ export default function HomePage() {
         <article className="home-menu__item home-menu__item--tasting">
           <h3>Tasting Board</h3>
           <p>
-            Browse what other home brewers think of the beans they&rsquo;ve tried, before you
-            buy your next bag.
+            Browse what other home brewers think of the beans they&rsquo;ve tried, before you buy
+            your next bag.
           </p>
           <Link to="/tastings">
             <button type="button">Browse reviews</button>
@@ -77,3 +77,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+HomePage.propTypes = {};

@@ -1,7 +1,7 @@
 {
   "name": "cuppa-backend",
   "version": "1.0.0",
-  "description": "Cuppa — Coffee Brew Log & Tasting Board (backend)",
+  "description": "Cuppa: Coffee Brew Log & Tasting Board (backend)",
   "main": "server.js",
   "type": "module",
   "scripts": {

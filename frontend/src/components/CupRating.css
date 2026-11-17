@@ -22,8 +22,7 @@
   stroke-width: 1.5;
 }
 
-/* Interactive rating control used in BrewForm — simple hover/focus
-   feedback: a slight scale on the cup being pointed at. */
+/* Clickable cups in the brew and review forms */
 .cup-rating__button {
   background: none;
   border: none;

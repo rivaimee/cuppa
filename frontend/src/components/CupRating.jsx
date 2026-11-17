@@ -21,10 +21,7 @@ Cup.propTypes = {
   filled: PropTypes.bool.isRequired,
 };
 
-// Same visual (coffee cups instead of stars) in two modes:
-// - display mode (default): read-only, used on BrewCard / BestBrewBanner
-// - interactive mode (onRate passed in): used by BrewForm as the actual
-//   rating control, with hover preview and click-to-set.
+// Read-only by default, clickable when onRate is passed
 export default function CupRating({ rating, onRate }) {
   const [hoverValue, setHoverValue] = useState(0);
   const interactive = typeof onRate === "function";

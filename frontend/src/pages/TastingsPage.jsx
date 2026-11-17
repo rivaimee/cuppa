@@ -10,7 +10,7 @@ export default function TastingsPage() {
   const { user } = useAuth();
   const [tastings, setTastings] = useState([]);
   const [averages, setAverages] = useState([]);
-  const [filters, setFilters] = useState({ roaster: "", origin: "", minRating: "" });
+  const [filters, setFilters] = useState({ q: "", roaster: "", origin: "", minRating: "" });
   const [editingTasting, setEditingTasting] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -18,6 +18,7 @@ export default function TastingsPage() {
 
   const loadTastings = useCallback(async () => {
     const params = new URLSearchParams();
+    if (filters.q) params.set("q", filters.q);
     if (filters.roaster) params.set("roaster", filters.roaster);
     if (filters.origin) params.set("origin", filters.origin);
     if (filters.minRating) params.set("minRating", filters.minRating);
@@ -51,6 +52,9 @@ export default function TastingsPage() {
   useEffect(() => {
     loadAverages().catch((err) => setPageError(err.message));
   }, [loadAverages]);
+
+  const totalReviews = averages.reduce((sum, a) => sum + a.count, 0);
+  const isFiltered = Object.values(filters).some((value) => value !== "");
 
   function averageFor(tasting) {
     return averages.find(
@@ -104,6 +108,14 @@ export default function TastingsPage() {
   return (
     <div className="tastings-page">
       <h1 className="tastings-page__title">Tasting Board</h1>
+
+      {!loading && (
+        <p className="tastings-page__count">
+          {isFiltered
+            ? `Showing ${tastings.length.toLocaleString()} of ${totalReviews.toLocaleString()} reviews`
+            : `${totalReviews.toLocaleString()} ${totalReviews === 1 ? "review" : "reviews"}`}
+        </p>
+      )}
 
       {pageError && (
         <p className="tastings-page__error" role="status">
@@ -162,3 +174,5 @@ export default function TastingsPage() {
     </div>
   );
 }
+
+TastingsPage.propTypes = {};

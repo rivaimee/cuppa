@@ -28,3 +28,7 @@ export function TrashIcon() {
     </svg>
   );
 }
+
+EditIcon.propTypes = {};
+
+TrashIcon.propTypes = {};

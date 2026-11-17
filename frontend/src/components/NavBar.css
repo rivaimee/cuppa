@@ -45,8 +45,7 @@
   color: var(--color-caramel);
 }
 
-/* The current page gets a small underline accent — makes the nav feel
-   alive and tells you where you are, not just a row of plain links. */
+/* Underline the link for the current page */
 .nav-bar__links a.nav-bar__links-active {
   color: var(--color-caramel);
 }

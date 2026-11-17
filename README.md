@@ -219,6 +219,10 @@ UI).
   rating (1-5 coffee cups), and tasting notes
 - Browse every review, newest first, and filter by roaster, origin
   (case-insensitive, partial match), and minimum rating
+- Search box that matches the coffee name, roaster, or tasting notes, and
+  combines with the filters
+- The page shows the total number of reviews, or "Showing X of Y" while a
+  search or filter is on
 - Each review card shows that coffee's **average rating** and review count
   across all reviews of the same coffee from the same roaster, and it
   updates after any save or delete
@@ -243,13 +247,13 @@ or `username` itself.
 
 ### API
 
-| Endpoint                                    | Method | Login | Description                                   |
-| ------------------------------------------- | ------ | ----- | --------------------------------------------- |
-| `/api/tastings?roaster=&origin=&minRating=` | GET    | No    | List reviews, optionally filtered             |
-| `/api/tastings/averages`                    | GET    | No    | Average rating and count per coffee + roaster |
-| `/api/tastings`                             | POST   | Yes   | Post a review                                 |
-| `/api/tastings/:id`                         | PUT    | Yes   | Edit a review (author only, otherwise 404)    |
-| `/api/tastings/:id`                         | DELETE | Yes   | Delete a review (author only, otherwise 404)  |
+| Endpoint                                       | Method | Login | Description                                    |
+| ---------------------------------------------- | ------ | ----- | ---------------------------------------------- |
+| `/api/tastings?q=&roaster=&origin=&minRating=` | GET    | No    | List reviews, optionally searched and filtered |
+| `/api/tastings/averages`                       | GET    | No    | Average rating and count per coffee + roaster  |
+| `/api/tastings`                                | POST   | Yes   | Post a review                                  |
+| `/api/tastings/:id`                            | PUT    | Yes   | Edit a review (author only, otherwise 404)     |
+| `/api/tastings/:id`                            | DELETE | Yes   | Delete a review (author only, otherwise 404)   |
 
 ### Seed script
 

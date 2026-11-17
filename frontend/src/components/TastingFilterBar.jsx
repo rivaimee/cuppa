@@ -9,6 +9,15 @@ export default function TastingFilterBar({ filters, onChange }) {
 
   return (
     <div className="tasting-filter-bar">
+      <label htmlFor="filter-search">Search</label>
+      <input
+        id="filter-search"
+        type="text"
+        value={filters.q}
+        onChange={(e) => update("q", e.target.value)}
+        placeholder="Coffee, roaster, or notes..."
+      />
+
       <label htmlFor="filter-roaster">Roaster</label>
       <input
         id="filter-roaster"
@@ -44,6 +53,7 @@ export default function TastingFilterBar({ filters, onChange }) {
 
 TastingFilterBar.propTypes = {
   filters: PropTypes.shape({
+    q: PropTypes.string,
     roaster: PropTypes.string,
     origin: PropTypes.string,
     minRating: PropTypes.string,

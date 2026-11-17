@@ -19,8 +19,8 @@ function requireAuth(req, res, next) {
 
 router.get("/", async (req, res) => {
   try {
-    const { roaster, origin, minRating } = req.query;
-    const tastings = await findTastings({ roaster, origin, minRating });
+    const { roaster, origin, minRating, q } = req.query;
+    const tastings = await findTastings({ roaster, origin, minRating, q });
     res.json(tastings);
   } catch (_err) {
     res.status(500).json({ errors: ["Could not load reviews."] });

@@ -29,8 +29,6 @@ export default function BrewsPage() {
     setBrews(Array.isArray(data) ? data : []);
   }, [filters]);
 
-  // Shared by the initial load, after saving, and after deleting — so the
-  // Best Brew banner never goes stale after any change to the brew list.
   const loadBestBrew = useCallback(async () => {
     const res = await fetch("/api/brews/best");
     if (!res.ok) {
@@ -81,8 +79,7 @@ export default function BrewsPage() {
         const data = await res.json().catch(() => ({}));
         throw new Error(data.errors?.[0] || "Could not delete brew.");
       }
-      // Refetch both — the brew that was just deleted might have been
-      // the best-rated one, so the banner needs a fresh answer too.
+      // The deleted brew may have been the best one, so reload both
       await Promise.all([loadBrews(), loadBestBrew()]);
     } catch (err) {
       setPageError(err.message);
@@ -131,7 +128,7 @@ export default function BrewsPage() {
       {loading ? (
         <p className="brews-page__loading">Loading your brews...</p>
       ) : brews.length === 0 ? (
-        <p className="brews-page__empty">No brews logged yet — add your first one above.</p>
+        <p className="brews-page__empty">No brews logged yet. Add your first one above.</p>
       ) : (
         <div className="brew-list">
           {brews.map((brew) => (
@@ -142,3 +139,5 @@ export default function BrewsPage() {
     </div>
   );
 }
+
+BrewsPage.propTypes = {};

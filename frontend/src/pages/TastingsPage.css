@@ -1,5 +1,11 @@
 .tastings-page__title {
-  margin-bottom: 16px;
+  margin-bottom: 4px;
+}
+
+.tastings-page__count {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: var(--color-roast);
 }
 
 .tastings-page__toolbar {
@@ -22,9 +28,9 @@
 }
 
 .tastings-page__list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
 }
 
 .tastings-page__error {
@@ -50,5 +56,9 @@
   .tastings-page__toolbar {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .tastings-page__list {
+    grid-template-columns: 1fr;
   }
 }

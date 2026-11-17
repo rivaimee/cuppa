@@ -14,3 +14,5 @@ export default function LoginPage() {
 
   return <AuthForm mode="login" onSubmit={handleLogin} />;
 }
+
+LoginPage.propTypes = {};

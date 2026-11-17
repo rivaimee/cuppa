@@ -20,13 +20,18 @@ function tastingFields(data) {
   };
 }
 
-export async function findTastings({ roaster, origin, minRating } = {}) {
+export async function findTastings({ roaster, origin, minRating, q } = {}) {
   const tastings = await tastingsCollection();
   const query = {};
 
   if (roaster) query.roaster = { $regex: escapeRegex(String(roaster)), $options: "i" };
   if (origin) query.origin = { $regex: escapeRegex(String(origin)), $options: "i" };
   if (minRating) query.rating = { $gte: Number(minRating) };
+
+  if (q) {
+    const pattern = { $regex: escapeRegex(String(q)), $options: "i" };
+    query.$or = [{ coffeeName: pattern }, { roaster: pattern }, { notes: pattern }];
+  }
 
   return tastings.find(query).sort({ createdAt: -1 }).toArray();
 }
