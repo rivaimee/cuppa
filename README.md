@@ -307,8 +307,6 @@ frontend/src/
     └── BrewsPage.jsx        - the Brew Log page itself
 ```
 
-Color palette and shared conventions are documented in `HANDOFF.md`.
-
 ---
 
 ## Use of GenAI Tools
