@@ -1,7 +1,7 @@
 {
   "name": "cuppa-frontend",
   "version": "1.0.0",
-  "description": "Cuppa — Coffee Brew Log & Tasting Board (frontend)",
+  "description": "Cuppa: Coffee Brew Log & Tasting Board (frontend)",
   "type": "module",
   "scripts": {
     "dev": "vite",

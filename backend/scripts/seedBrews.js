@@ -6,6 +6,7 @@ import { VALID_METHODS } from "../validation/brew.js";
 const DEMO_USERNAME = "demo_brewer";
 const DEMO_PASSWORD = "demo12345";
 
+// Pass a count to seed fewer records, e.g. scripts/seedBrews.js 20
 const RECORD_COUNT = Number(process.argv[2]) || 1200;
 
 const BEAN_NAMES = [

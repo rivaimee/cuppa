@@ -35,9 +35,9 @@ main {
   padding: 32px 20px;
 }
 
+/* Default button style for the whole app */
 button,
-.btn {
-  background-image: linear-gradient(180deg, var(--color-caramel), #a3692f);
+.btn {  background-image: linear-gradient(180deg, var(--color-caramel), #a3692f);
   color: var(--color-espresso);
   border: none;
   border-radius: 6px;
@@ -82,7 +82,7 @@ button:focus-visible,
   }
 }
 
-
+/* Turn off animations for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

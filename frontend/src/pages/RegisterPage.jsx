@@ -14,3 +14,5 @@ export default function RegisterPage() {
 
   return <AuthForm mode="register" onSubmit={handleRegister} />;
 }
+
+RegisterPage.propTypes = {};

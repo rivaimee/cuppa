@@ -1,6 +1,4 @@
-// Single shared MongoClient for the whole app's lifetime.
-// The connection is made once and reused everywhere, instead of opening
-// a fresh connection on every request and exhausting connection pools.
+// One shared MongoClient, reused by every request
 
 import { MongoClient } from "mongodb";
 
