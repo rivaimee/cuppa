@@ -1,17 +1,17 @@
 .brew-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
 }
 
 .brew-card {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column;
+  gap: 10px;
   background-color: var(--color-foam);
   border: 1px solid var(--color-border);
   border-left: 4px solid;
-  border-radius: 2px;
+  border-radius: 8px;
   padding: 18px 22px;
   transition:
     transform 200ms ease,
@@ -42,7 +42,7 @@
 
 .brew-card__details {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2px 16px;
   margin: 10px 0 0;
   font-size: 0.85rem;
@@ -73,10 +73,12 @@
 
 .brew-card__side {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   gap: 10px;
+  margin-top: auto;
+  padding-top: 8px;
 }
 
 .brew-card__actions {
@@ -100,14 +102,8 @@
 }
 
 @media (max-width: 640px) {
-  .brew-card {
-    flex-direction: column;
-  }
-
-  .brew-card__side {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  .brew-list {
+    grid-template-columns: 1fr;
   }
 }
 
