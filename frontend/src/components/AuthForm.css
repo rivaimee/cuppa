@@ -10,11 +10,38 @@
   gap: 10px;
 }
 
+.auth-form__input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-form__input-icon {
+  position: absolute;
+  left: 10px;
+  display: inline-flex;
+  color: var(--color-roast);
+  pointer-events: none;
+}
+
 .auth-form input {
-  padding: 8px 10px;
+  width: 100%;
+  padding: 8px 10px 8px 34px;
   border-radius: 6px;
   border: 1px solid var(--color-border);
   font-size: 1rem;
+}
+
+.auth-form__switch {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-roast);
+  margin: 10px 0 0;
+}
+
+.auth-form__switch a {
+  color: var(--color-caramel);
+  font-weight: 600;
 }
 
 .auth-form label {

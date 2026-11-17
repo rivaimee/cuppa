@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import CupRating from "./CupRating.jsx";
 import { METHOD_COLORS } from "../constants/brewMethods.js";
+import { EditIcon, TrashIcon } from "./ActionIcons.jsx";
+import { formatRelativeTime } from "../utils/formatRelativeTime.js";
 import "./BrewCard.css";
 
 export default function BrewCard({ brew, onEdit, onDelete }) {
@@ -46,23 +48,17 @@ export default function BrewCard({ brew, onEdit, onDelete }) {
 
         {brew.notes && <p className="brew-card__notes">{brew.notes}</p>}
 
-        <p className="brew-card__date">
-          {new Date(brew.date).toLocaleDateString(undefined, {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })}
-        </p>
+        <p className="brew-card__date">{formatRelativeTime(brew.date)}</p>
       </div>
 
       <div className="brew-card__side">
         <CupRating rating={brew.rating} />
         <div className="brew-card__actions">
-          <button type="button" onClick={() => onEdit(brew)}>
-            Edit
+          <button type="button" aria-label="Edit brew" onClick={() => onEdit(brew)}>
+            <EditIcon />
           </button>
-          <button type="button" onClick={() => onDelete(brew._id)}>
-            Delete
+          <button type="button" aria-label="Delete brew" onClick={() => onDelete(brew._id)}>
+            <TrashIcon />
           </button>
         </div>
       </div>

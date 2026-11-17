@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import CupRating from "./CupRating.jsx";
+import { EditIcon, TrashIcon } from "./ActionIcons.jsx";
+import { formatRelativeTime } from "../utils/formatRelativeTime.js";
 import "./TastingCard.css";
 
 export default function TastingCard({ tasting, average, isOwner, onEdit, onDelete }) {
@@ -17,12 +19,7 @@ export default function TastingCard({ tasting, average, isOwner, onEdit, onDelet
         {tasting.notes && <p className="tasting-card__notes">{tasting.notes}</p>}
 
         <p className="tasting-card__meta">
-          Reviewed by {tasting.username} on{" "}
-          {new Date(tasting.createdAt).toLocaleDateString(undefined, {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })}
+          Reviewed by {tasting.username}, {formatRelativeTime(tasting.createdAt)}
         </p>
       </div>
 
@@ -36,11 +33,11 @@ export default function TastingCard({ tasting, average, isOwner, onEdit, onDelet
         )}
         {isOwner && (
           <div className="tasting-card__actions">
-            <button type="button" onClick={() => onEdit(tasting)}>
-              Edit
+            <button type="button" aria-label="Edit review" onClick={() => onEdit(tasting)}>
+              <EditIcon />
             </button>
-            <button type="button" onClick={() => onDelete(tasting._id)}>
-              Delete
+            <button type="button" aria-label="Delete review" onClick={() => onDelete(tasting._id)}>
+              <TrashIcon />
             </button>
           </div>
         )}
