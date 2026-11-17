@@ -5,8 +5,6 @@ import "./CupRating.css";
 
 // Read-only by default, clickable when onRate is passed
 export default function CupRating({ rating, onRate }) {
-
-export default function CupRating({ rating, onRate }) {
   const [hoverValue, setHoverValue] = useState(0);
   const interactive = typeof onRate === "function";
   const displayValue = interactive && hoverValue > 0 ? hoverValue : rating;

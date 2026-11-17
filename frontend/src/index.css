@@ -37,7 +37,8 @@ main {
 
 /* Default button style for the whole app */
 button,
-.btn {  background-image: linear-gradient(180deg, var(--color-caramel), #a3692f);
+.btn {
+  background-image: linear-gradient(180deg, var(--color-caramel), #a3692f);
   color: var(--color-espresso);
   border: none;
   border-radius: 6px;
