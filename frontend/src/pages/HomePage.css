@@ -141,3 +141,17 @@
     transform: none;
   }
 }
+
+.home-page {
+  background-image: url("/bean-pattern.svg");
+  background-repeat: repeat;
+}
+
+.home-menu__icon {
+  color: var(--color-roast);
+  margin-bottom: 10px;
+}
+
+.home-menu__item--tasting .home-menu__icon {
+  color: var(--color-cherry);
+}

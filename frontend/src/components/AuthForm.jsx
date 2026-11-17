@@ -52,8 +52,9 @@ export default function AuthForm({ mode, onSubmit }) {
   }
 
   return (
-    <form className="auth-form" onSubmit={handleSubmit}>
-      <h1>{mode === "login" ? "Log in" : "Create an account"}</h1>
+    <div className="auth-page">
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <h1>{mode === "login" ? "Log in" : "Create an account"}</h1>
 
       <label htmlFor="username">Username</label>
       <div className="auth-form__input-wrap">
@@ -103,7 +104,8 @@ export default function AuthForm({ mode, onSubmit }) {
           </>
         )}
       </p>
-    </form>
+      </form>
+    </div>
   );
 }
 

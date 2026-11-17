@@ -32,3 +32,8 @@
     align-items: stretch;
   }
 }
+
+.brews-page {
+  background-image: url("/brew-pattern.svg");
+  background-repeat: repeat;
+}

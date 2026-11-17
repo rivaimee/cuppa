@@ -53,6 +53,35 @@ export default function HomePage() {
 
       <section className="home-menu">
         <article className="home-menu__item">
+          <svg
+            className="home-menu__icon"
+            width="40"
+            height="40"
+            viewBox="0 0 48 48"
+            aria-hidden="true"
+          >
+            <path
+              d="M14 8h20l-5 11h-10z"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M15 19h18v14a9 9 0 0 1-9 9 9 9 0 0 1-9-9z"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M33 23h3a4 4 0 0 1 0 8h-3"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
           <h3>My Brews</h3>
           <p>
             A private log of every cup you&rsquo;ve made: method, ratio, rating, and tasting notes,
@@ -64,6 +93,48 @@ export default function HomePage() {
         </article>
 
         <article className="home-menu__item home-menu__item--tasting">
+          <svg
+            className="home-menu__icon"
+            width="40"
+            height="40"
+            viewBox="0 0 48 48"
+            aria-hidden="true"
+          >
+            <path
+              d="M15 12h14l3 8v20a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V20z"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M15 12l3-6h12l3 6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinejoin="round"
+            />
+            <ellipse
+              cx="20"
+              cy="34"
+              rx="4"
+              ry="2.6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              transform="rotate(-15 20 34)"
+            />
+            <ellipse
+              cx="28"
+              cy="38"
+              rx="4"
+              ry="2.6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              transform="rotate(10 28 38)"
+            />
+          </svg>
           <h3>Tasting Board</h3>
           <p>
             Browse what other home brewers think of the beans they&rsquo;ve tried, before you buy

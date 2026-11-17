@@ -62,3 +62,8 @@
     grid-template-columns: 1fr;
   }
 }
+
+.tastings-page {
+  background-image: url("/cup-pattern.svg");
+  background-repeat: repeat;
+}

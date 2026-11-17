@@ -62,3 +62,9 @@
   font-size: 0.9rem;
   margin: 0;
 }
+
+.auth-page {
+  background-image: url("/bean-pattern.svg");
+  background-repeat: repeat;
+  min-height: calc(100vh - 60px);
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150">
+  <g fill="none" stroke="#8a3324" stroke-width="1.5" opacity="0.1">
+    <g transform="translate(20,20) rotate(-10)">
+      <path d="M0,4h18l-2,22a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2z" />
+      <line x1="-1" y1="4" x2="19" y2="4" />
+      <line x1="2" y1="11" x2="16" y2="11" />
+    </g>
+    <g transform="translate(95,40) rotate(14)">
+      <path d="M0,4h18l-2,22a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2z" />
+      <line x1="-1" y1="4" x2="19" y2="4" />
+      <line x1="2" y1="11" x2="16" y2="11" />
+    </g>
+    <g transform="translate(40,95) rotate(6)">
+      <path d="M0,4h18l-2,22a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2z" />
+      <line x1="-1" y1="4" x2="19" y2="4" />
+      <line x1="2" y1="11" x2="16" y2="11" />
+    </g>
+    <g transform="translate(105,105) rotate(-18)">
+      <path d="M0,4h18l-2,22a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2z" />
+      <line x1="-1" y1="4" x2="19" y2="4" />
+      <line x1="2" y1="11" x2="16" y2="11" />
+    </g>
+  </g>
+</svg>
