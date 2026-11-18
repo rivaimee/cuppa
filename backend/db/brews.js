@@ -45,6 +45,11 @@ export async function findBestBrew(userId) {
 
 export async function findBrewById(id) {
   const brews = await brewsCollection();
+  // REVIEW: new ObjectId(id) throws on a malformed id, so PUT /api/brews/:id
+  // answers 500 instead of 404. tastings.js already guards with
+  // ObjectId.isValid(id); the same check is missing here and in updateBrew
+  // and deleteBrew. Also, updateBrew already filters by userId, so the
+  // findBrewById call in the PUT route is a redundant extra query.
   return brews.findOne({ _id: new ObjectId(id) });
 }
 
