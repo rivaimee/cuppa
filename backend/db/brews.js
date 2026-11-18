@@ -32,6 +32,9 @@ export async function findBrewsByUser(userId, { method, start, end } = {}) {
     if (end) query.date.$lte = end;
   }
 
+  // REVIEW: this returns every matching brew at once (the demo user has 1,200).
+  // Consider pagination, e.g. .skip((page - 1) * limit).limit(limit), plus a
+  // total count so the UI can page. Same applies to findTastings in tastings.js.
   return brews.find(query).sort({ date: -1 }).toArray();
 }
 
